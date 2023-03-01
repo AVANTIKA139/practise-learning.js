@@ -8,7 +8,7 @@ app.post("/api/submituser",(req, res) => {
 app.post("/api/login" , (req, res) => {
     try{
 
-        let originalPassword = "avantikatiwari18@gmail.com";
+        let originalPassword = "avantikatiwari18";
         let enteredPassword = "req.body.password";
         if(originalPassword === enteredPassword) {
             return res.status(200).json({ success: true, message: "logged in successfully"});
