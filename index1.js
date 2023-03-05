@@ -4,38 +4,40 @@ const app = express();
 app.use(express.json());
 
 
-app.post("/api/newsdata" , (req, res) => {
-    try{
+app.post("/api/biodata" , (req, res) => {
+try{
 
-        console.log(req.body);
+console.log(req.body);
         
-        const newsdata ={
-           latestnewstitle : req.body.newstitle,
-            trendingnewscategory : req.body.newscategory,
-            originalnewsdescription: req.body. newsdescription,
-            newsdate: req.body.newsdate,
-            updatedsource: req.body.source,
-           recentviews: req.body.views,
-        };
-        console.log(newsdata);
+const biodata ={
+FullName : req.body.Name,
+CorrectBirthdate  : req.body.Birthdate,
+CorrespondenceAddress: req.body.Address,
+PersonalPhonenumber: req.body.Phonenumber,
+Hobbies: req.body.Hobbies,
+linkedinid: req.body.linkedinid,
+githubid: req.body.githubid,
+email: req.body.email,
+};
+console.log(biodata);
         
         
         
         
         
-            return res.status(200).json({ success: true, message: "corect news"});
+return res.status(200).json({ success: true, message: "corect biodata"});
 
        
         
         
-    } catch(error) {
-        return res.status(400).json({ success: false, error:error.message })
-    }
+} catch(error) {
+ return res.status(400).json({ success: false, error:error.message })
+}
 
 });
 
 
 const PORT  = 8000
 app.listen(PORT, () => {
-    console.log('Server is running at port ${PORT}');
+console.log('Server is running at port ${PORT}');
 });         
