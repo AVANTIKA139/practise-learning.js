@@ -4,8 +4,8 @@ const swiggySchema = new mongoose.Schema({
   dishes: String,
   restaurentstoexplore: String,
   prices: Number,
-  cuisins: String,
+  cuisine: String,
   signinwiththisnumber: Boolean,
 });
-const swiggymodel = mongoose.swiggy("swiggy", swiggySchema);
+const swiggymodel = mongoose.model("swiggy", swiggySchema);
 module.exports = swiggymodel;

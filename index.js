@@ -1,13 +1,22 @@
 const express = require("express");
 //const mongoose = require("mongoose");
 const app = express();
+
+const { connectDatabase } = require("./main/connection/mongo");
+const USER_MODEL = require("./models/user");
 app.use(express.json());
-
-const { connectDatabase } = require("./mongo");
-
-app.post("/api/savedata", (req, res) => {
+app.post("/api/savedata", async (req, res) => {
   try {
-    console.log(req.body);
+    const newobject = {
+      dishes: String,
+      restaurentstoexplore: String,
+      prices: Number,
+      cuisins: String,
+      signinwiththisnumber: Boolean,
+    };
+    const userData = new USER_MODEL(newobject);
+    await userData.save();
+
     return res.json({ success: true, message: "data saved successfully" });
   } catch (error) {
     console.log(error);

@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const instagramSchema = new mongoose.Schema({
-  followers: String,
-  following: String,
+  followers: Number,
+  following: Number,
   likes: Number,
   story: String,
-  messages: String,
+  messages: Number,
 });
 
 const instagrammodel = mongoose.model("instagram", instagramSchema);
