@@ -32,8 +32,8 @@ app.post("/api/ticket", async (req, res) => {
 
 app.get("/api/ticket", async (req, res) => {
   try {
-    const ticketData = await ticketmodel.find();
-    return res.json({ success: true, data: userData });
+    const userdata = await TICKET_MODEL.find();
+    return res.json({ success: true, data: userdata });
   } catch (error) {
     return res.status(401).json({ success: false, error: error.message });
   }

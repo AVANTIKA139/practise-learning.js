@@ -27,7 +27,7 @@ app.post("/api/reportcard", async (req, res) => {
 });
 app.get("/api/reportcard", async (req, res) => {
   try {
-    const reportcarddata = await REPORTCARD_MODEL.find();
+    const userdata = await REPORTCARD_MODEL.find();
     return res.json({ success: true, data: userdata });
   } catch (error) {
     console.log(error);

@@ -28,7 +28,7 @@ app.post("/api/studentid", async (req, res) => {
 
 app.get("/api/studentid", async (req, res) => {
   try {
-    const studentidData = await studentidmodel.find();
+    const userData = await STUDENTID_MODEL.find();
     return res.json({ success: true, data: userData });
   } catch (error) {
     return res.status(401).json({ success: false, error: error.message });
