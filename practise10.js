@@ -34,6 +34,22 @@ app.get("/api/studentid", async (req, res) => {
     return res.status(401).json({ success: false, error: error.message });
   }
 });
+app.get("/api/studentid", async (req, res) => {
+  try {
+    const userData = await STUDENTID_MODEL.find().sort({ createAt: -1 });
+    return res.json({ success: true, data: userData });
+  } catch (error) {
+    return res.status(401).json({ success: false, error: error.message });
+  }
+});
+app.get("/api/studentidlimit", async (req, res) => {
+  try {
+    const userData = await STUDENTID_MODEL.find().limit(1);
+    return res.json({ success: true, data: userData });
+  } catch (error) {
+    return res.status(401).json({ success: false, error: error.message });
+  }
+});
 
 const PORT = 5000;
 const a = connectDatabase();
